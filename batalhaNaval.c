@@ -3,18 +3,9 @@
 int main() {
     
     char linhas[10] = {'A','B','C','D','E','F','G','H','I','J'};//vetor
-    int tabuleiro[10][10] = {
-        {0,0,0,0,0,0,0,0,0,0},
-        {0,0,0,0,0,0,0,0,0,0},
-        {0,0,0,3,3,3,0,0,0,0},
-        {0,0,0,0,0,0,0,0,0,0},
-        {0,0,0,0,0,0,0,0,0,0},
-        {0,0,0,0,0,0,0,3,0,0},
-        {0,0,0,0,0,0,0,3,0,0},
-        {0,0,0,0,0,0,0,3,0,0},
-        {0,0,0,0,0,0,0,0,0,0},
-        {0,0,0,0,0,0,0,0,0,0}
-    };
+    int tabuleiro[10][10] = {0};
+
+
     printf(" TABULEIRO BATALHA NAVAL \n");
     printf("  ");
 
@@ -23,7 +14,25 @@ int main() {
     printf("%2c", linhas[i]); 
    }
     printf("\n");
-    
+
+    for(int j = 3; j <= 5; j++){// Navio horizontal
+        tabuleiro[2][j] = 3; // A linha é Fixa e a coluna vai percorre index 3 4 5.
+    }
+
+    for(int i = 4; i <= 6; i++){// Navio na vertical
+        tabuleiro[i][7] = 3;// A coluna é fixa e a linha percorre index 4 5 6.
+    }
+
+    for(int i = 4, j = 1; i <= 6, j <= 3; i++, j++){// dois controle no mesmo for para fazer a diagonal esqueda
+
+        tabuleiro[i][j] = 3;
+
+    }
+
+    for(int i = 1, j = 9; i <= 3, j >= 7; i++, j--){//dois controle no mesmo for para fazer a diagonal direita
+        tabuleiro[i][j] = 3;
+    }
+
     for (int i = 1; i <= 10; i++)
     {
         printf("%2d ", i);// numera as linhas do 1 até 10
